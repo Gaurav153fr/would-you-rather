@@ -1,0 +1,9 @@
+/* loader.css */
+@keyframes loadAnimation {
+  from {
+    height: 100%;
+  }
+  to {
+    height: 0%;
+  }
+}
