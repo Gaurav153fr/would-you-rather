@@ -23,7 +23,7 @@ export default function Home() {
 
       {session ? (
         <div>
-          <Next isHome />
+          <Next isHome id="" />
           <Link
             href="/add"
             className="w-32 h-32 bg-white/50 backdrop-blur-md rounded-sm hover:rounded-3xl m-2 text-lg font-extrabold transition-all text-center flex items-center p-2"

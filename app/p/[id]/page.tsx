@@ -24,7 +24,7 @@ const Page = async ({ params }: { params: { id: string } }) => {
         <h2 className=" text-3xl font-bold text-nowrap shadow-lg bg-white my-2 px-1">
           Would you rather?
         </h2>
-        <Next isHome={false} />
+        <Next isHome={false} id={params.id} />
         <CardContainer post={data} id={params.id} />
       </main>
     );

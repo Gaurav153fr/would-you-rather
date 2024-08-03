@@ -3,18 +3,25 @@ import { getRandom } from "@/lib/CreatePost";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 
-const getExcludedIds = (): string[] => {
+const getExcludedIds = (id: string): string[] => {
   const excludedIds = localStorage.getItem("excludedIds");
-  return excludedIds ? JSON.parse(excludedIds) : [];
+  if (excludedIds) {
+    var e: string[] = JSON.parse(excludedIds);
+    if (id.length > 0 && e.indexOf(id) < 0) {
+      e.push(id);
+      return e;
+    } else return e;
+  } else {
+    return [];
+  }
 };
 
-const Next = ({ isHome }: { isHome: boolean }) => {
+const Next = ({ isHome, id }: { isHome: boolean; id: string }) => {
   const [excludedIds, setExcludedIds] = useState<string[]>([]);
   const [nextId, setNextId] = useState<string>("");
 
   useEffect(() => {
-    setTimeout('',5000)
-    const ids = getExcludedIds();
+    const ids = getExcludedIds(id);
     setExcludedIds(ids);
 
     const fetchRandomId = async () => {
