@@ -7,7 +7,7 @@ const Navbar = () => {
       <Link href="/" className="text-white font-extrabold text-pretty md:text-2xl flex flex-col">
         <div className="w-14"><img src="logo.png" alt="logo" /></div>
       </Link>
-      <Login />
+      {/* <Login /> */}
     </div>
   );
 };

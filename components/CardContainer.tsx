@@ -21,6 +21,18 @@ const getExcludedIds = (): string[] => {
   return excludedIds ? JSON.parse(excludedIds) : [];
 };
 
+const getVotedIds = (): string[] => {
+  const votedIds = localStorage.getItem("votedIds");
+  return votedIds ? JSON.parse(votedIds) : [];
+};
+
+const addVotedIds = (id: string) => {
+  const votedIds = getExcludedIds();
+
+  votedIds.push(id);
+  localStorage.setItem("votedIds", JSON.stringify(votedIds));
+};
+
 // Utility function to add a new ID to the excluded IDs array in local storage
 const addExcludedId = (id: string) => {
   const excludedIds = getExcludedIds();
@@ -31,7 +43,7 @@ const addExcludedId = (id: string) => {
 };
 
 const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
-  const { data: session } = useSession();
+  // const { data: session } = useSession();
   const [isClicked, setClicked] = useState(false);
 
   useEffect(() => {
@@ -48,30 +60,31 @@ const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
   }, [id]);
 
   async function givePoint(id_point: string) {
-    const email = session?.user?.email;
+    // if (email) {
+    //   const hasGivenPoint = post.options.some((option) =>
+    //     option.points.includes(email)
+    //   );
 
-    if (email) {
-      const hasGivenPoint = post.options.some((option) =>
-        option.points.includes(email)
-      );
+    if (getVotedIds().indexOf(id) < 0) {
+      console.log("voting");
 
-      if (!hasGivenPoint) {
-        const response = await fetch(`/api/point`, {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            id: id,
-            point_id: id_point,
-            email: email, // email is now guaranteed to be a string
-          }),
-        });
+      const response = await fetch(`/api/point`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          id: id,
+          point_id: id_point,
+          email: "gareeb user", // email is now guaranteed to be a string
+        }),
+      });
 
-        const result = await response.json();
-      }
-    } else {
-      console.error("No email found in session");
+      const result = await response.json();
+      addVotedIds(id);
+    }else{
+      console.log("already voted");
+      
     }
   }
 

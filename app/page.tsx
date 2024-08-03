@@ -21,7 +21,7 @@ export default function Home() {
         Would you rather?
       </h2>
 
-      {session ? (
+      {/* {session ? ( */}
         <div>
           <Next isHome id="" />
           <Link
@@ -39,7 +39,7 @@ export default function Home() {
             See my github
           </Link>
         </div>
-      ) : (
+      {/* ) : (
         <div>
           <button
             onClick={() => signIn("google")}
@@ -54,7 +54,7 @@ export default function Home() {
             Sign in with github
           </button>
         </div>
-      )}
+      )} */}
     </main>
   );
 }
