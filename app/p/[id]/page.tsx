@@ -10,12 +10,10 @@ interface postType {
 
 const Page = async ({ params }: { params: { id: string } }) => {
   try {
-    const data: postType = await fetch(
-      `http://localhost:3000/api/get/${params.id}`,
-      {
-        headers: { "Cache-Control": "no-cache, no-store, must-revalidate" },
-      }
-    ).then((res) => {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL|| "http://localhost:3000"; 
+    const data: postType = await fetch(`${apiUrl}/api/get/${params.id}`, {
+      headers: { "Cache-Control": "no-cache, no-store, must-revalidate" },
+    }).then((res) => {
       return res.json();
     });
     console.log(data);
@@ -30,9 +28,9 @@ const Page = async ({ params }: { params: { id: string } }) => {
         <CardContainer post={data} id={params.id} />
       </main>
     );
-  } catch(err) {
+  } catch (err) {
     console.log(err);
-    
+
     return <h1>kuch bhi ye nahi chalega</h1>;
   }
 };
