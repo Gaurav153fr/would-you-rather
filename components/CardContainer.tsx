@@ -86,6 +86,7 @@ const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
   return (
     <div className="w-full flex justify-center max-md:flex-col ">
       <Card
+        left={true}
         setPoint={givePoint}
         id={post.options[0]._id}
         isClicked={isClicked}
@@ -95,6 +96,7 @@ const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
       />
       <Loader duration="30" />
       <Card
+        left={false}
         setPoint={givePoint}
         id={post.options[1]._id}
         isClicked={isClicked}

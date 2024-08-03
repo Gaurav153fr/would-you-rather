@@ -2,6 +2,7 @@
 import React, { Dispatch, SetStateAction, useRef } from "react";
 
 interface CardProps {
+  left:boolean,
   setPoint: (id: string) => void;
   id: string;
   isClicked: boolean;
@@ -11,6 +12,7 @@ interface CardProps {
 }
 
 const Card: React.FC<CardProps> = ({
+  left,
   setPoint,
   id,
   isClicked,
@@ -40,7 +42,7 @@ const Card: React.FC<CardProps> = ({
         onClick={handleClick}
         ref={div}
       >
-        <div className=" shadow-none md:h-80 max-md:m-auto max-md:h-64 m bg-white/80 backdrop-blur-sm aspect-square p-2 border-red-800 border-8 floating-l curvy ">
+        <div className={` shadow-none md:h-80 max-md:m-auto max-md:h-64 m bg-white/80 backdrop-blur-sm aspect-square p-2 ${left?"border-blue-800":"border-red-800"} border-8 floating-l curvy `}>
           <img
             src={img}
             className="object-cover w-full curvy h-4/5 aspect-square "
