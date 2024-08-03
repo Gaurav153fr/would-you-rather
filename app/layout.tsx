@@ -20,7 +20,7 @@ export default function RootLayout({
     <SessionWrapper>
       <html lang="en">
         <body className={inter.className}>
-          <div className="scrolling-image">
+          <div className="scrolling-image animated-background ">
           <Navbar/>
           {children}</div></body>
       </html>

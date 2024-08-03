@@ -1,6 +1,7 @@
 "use client";
 import Next from "@/components/Next";
 import { signIn, useSession } from "next-auth/react";
+import Link from "next/link";
 import { useEffect } from "react";
 
 const reset = () => {
@@ -15,23 +16,39 @@ export default function Home() {
     reset();
   }, []);
   return (
-    <main className="flex min-h-screen  flex-col items-center scrolling-image overflow-hidden ">
-      <h2 className="text-5xl my-3 font-extrabold font-mono drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] stroke-text stroke-2">
+    <main className="flex min-h-screen  flex-col items-center scrolling-image overflow-hidden animated-background ">
+      <h2 className=" text-3xl font-bold text-nowrap shadow-lg bg-white my-2 px-1">
         Would you rather?
       </h2>
+
       {session ? (
-        <Next />
+        <div>
+          <Next isHome />
+          <Link
+            href="/add"
+            className="w-32 h-32 bg-white/50 backdrop-blur-md rounded-sm hover:rounded-3xl m-2 text-lg font-extrabold transition-all text-center flex items-center p-2"
+          >
+            Add a question
+          </Link>
+          <Link
+            href="https://github.com/Gaurav153fr"
+            target="_blank"
+            className="w-32 h-32 bg-white/50 backdrop-blur-md rounded-sm hover:rounded-3xl m-2 text-lg font-extrabold transition-all text-center flex items-center p-2"
+          >
+            See my github
+          </Link>
+        </div>
       ) : (
         <div>
           <button
             onClick={() => signIn("google")}
-            className="w-20 h-20 bg-white rounded-md m-2 text-lg font-extrabold"
+            className="w-32 h-32 bg-blue-600 rounded-sm hover:rounded-3xl m-2 text-lg font-extrabold transition-all text-white"
           >
             Sign in with google
           </button>
           <button
             onClick={() => signIn("github")}
-            className="w-20 h-20 bg-white rounded-md m-2 text-lg font-extrabold"
+            className="w-32 h-32 bg-red-600 rounded-sm hover:rounded-3xl m-2 text-lg font-extrabold transition-all text-white"
           >
             Sign in with github
           </button>

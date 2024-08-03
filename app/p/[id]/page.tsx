@@ -21,17 +21,17 @@ const Page = async ({ params }: { params: { id: string } }) => {
       return res.json();
     });
     return (
-      <main className="flex min-h-screen flex-col items-center scrolling-image overflow-hidden">
+      <main className="flex min-h-screen flex-col items-center  overflow-hidden">
         {/* <Navbar /> */}
-        <h2 className="text-5xl my-3 font-extrabold font-mono drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] stroke-text stroke-2 max-md:m-auto max-md:text-xl ">
+        <h2 className=" text-3xl font-bold text-nowrap shadow-lg bg-white my-2 px-1">
           Would you rather?
         </h2>
-        <Next />
+        <Next isHome={false} />
         <CardContainer post={data} id={params.id} />
       </main>
     );
   } catch {
-    return <h1>hello</h1>;
+    return <h1>kuch bhi ye nahi chalega</h1>;
   }
 };
 

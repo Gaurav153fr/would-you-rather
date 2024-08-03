@@ -11,16 +11,18 @@ const Login = () => {
       <div className="flex items-center h-full  p-2">
         {session ? (
           <>
-            <div className="w-10 ">
+            <div className="md:w-10 w-5 flex ">
               <img
                 src={session.user?.image || "nojs"}
                 className="rounded-full"
               />
             </div>
-            <h3 className="mx-2 text-white">{session.user?.name}</h3>
+            <h3 className="mx-2 text-white max-md:text-sm text-nowrap">
+              {session.user?.name}
+            </h3>
             <button
               onClick={() => signOut()}
-              className="bg-red-400 p-2 rounded-md"
+              className="bg-red-600 p-2 rounded-sm hover:rounded-lg transition-all  max-md:text-sm text-white"
             >
               Sign out
             </button>
@@ -29,7 +31,7 @@ const Login = () => {
           <>
             <button
               onClick={() => signIn("github")}
-              className="bg-green-400 p-2 rounded-md"
+              className="bg-green-600 p-2 rounded-sm hover:rounded-lg transition-all  max-md:text-sm text-white"
             >
               Sign in
             </button>

@@ -40,13 +40,13 @@ const Card: React.FC<CardProps> = ({
         onClick={handleClick}
         ref={div}
       >
-        <div className="md:h-80 max-md:m-auto max-md:h-64 m bg-white aspect-square p-2 border-red-800 border-8 floating-l curvy">
+        <div className=" shadow-none md:h-80 max-md:m-auto max-md:h-64 m bg-white/80 backdrop-blur-sm aspect-square p-2 border-red-800 border-8 floating-l curvy ">
           <img
             src={img}
-            className="object-cover w-full curvy h-4/5 aspect-square"
+            className="object-cover w-full curvy h-4/5 aspect-square "
           />
           <div className="w-full h-full text-center">
-            <h2 className="text-black font-extrabold text-2xl m-auto">
+            <h2 className="text-black font-extrabold text-2xl m-auto text-pretty max-md:text-xl">
               {text}
             </h2>
           </div>

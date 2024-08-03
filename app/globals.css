@@ -103,7 +103,22 @@
   }
 }
 
-.stroke-text{
-  -webkit-text-stroke:1px white;
- 
+.stroke-text {
+  -webkit-text-stroke: 1px white;
+}
+
+.animated-background {
+  background-repeat: repeat;
+  
+  animation: animation 20s linear infinite;
+}
+
+@keyframes animation {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  100% {
+    background-position: 100% 50%;
+  }
 }
