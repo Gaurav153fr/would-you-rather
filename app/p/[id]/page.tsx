@@ -30,7 +30,9 @@ const Page = async ({ params }: { params: { id: string } }) => {
         <CardContainer post={data} id={params.id} />
       </main>
     );
-  } catch {
+  } catch(err) {
+    console.log(err);
+    
     return <h1>kuch bhi ye nahi chalega</h1>;
   }
 };
