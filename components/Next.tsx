@@ -13,6 +13,7 @@ const Next = ({ isHome }: { isHome: boolean }) => {
   const [nextId, setNextId] = useState<string>("");
 
   useEffect(() => {
+    setTimeout('',5000)
     const ids = getExcludedIds();
     setExcludedIds(ids);
 
