@@ -9,8 +9,6 @@ interface postType {
 }
 
 const Page = async ({ params }: { params: { id: string } }) => {
- 
-
   try {
     const data: postType = await fetch(
       `http://localhost:3000/api/get/${params.id}`,
@@ -20,6 +18,8 @@ const Page = async ({ params }: { params: { id: string } }) => {
     ).then((res) => {
       return res.json();
     });
+    console.log(data);
+
     return (
       <main className="flex min-h-screen flex-col items-center  overflow-hidden">
         {/* <Navbar /> */}
