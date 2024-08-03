@@ -43,7 +43,7 @@ const Card: React.FC<CardProps> = ({
         ref={div}
       >
         <div
-          className={` shadow-none md:h-80 max-md:m-auto max-md:h-64 m bg-white/80 backdrop-blur-sm aspect-square p-2 ${
+          className={` shadow-none md:h-80 max-md:m-auto max-md:h-64 m bg-white/80 md:backdrop-blur-sm aspect-square p-2 ${
             left ? "border-blue-800" : "border-red-800"
           } border-8 floating-l curvy `}
         >

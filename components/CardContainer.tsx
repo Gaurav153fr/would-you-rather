@@ -105,12 +105,12 @@ const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
           isClicked ? "" : "blur-3xl"
         } `}
       >
-        <div className="w-1/2 mt-5 flex items-center justify-center h-full bg-blue-700/80 backdrop-blur-md ">
+        <div className="w-1/2 mt-5 flex items-center justify-center h-full bg-blue-700/80 md:backdrop-blur-md ">
           <h3 className="text-6xl font-extrabold stroke-text max-md:text-3xl">
             {Math.round((post.options[0].points.length / totalPoints) * 100)}%{" "}
           </h3>
         </div>
-        <div className="w-1/2 mt-5 flex items-center justify-center h-full bg-red-700/80 max-md:p-0 backdrop-blur-md">
+        <div className="w-1/2 mt-5 flex items-center justify-center h-full bg-red-700/80 max-md:p-0 md:backdrop-blur-md">
           <h3 className="text-6xl font-extrabold stroke-text max-md:text-3xl">
             {Math.round((post.options[1].points.length / totalPoints) * 100)}%{" "}
           </h3>
