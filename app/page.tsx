@@ -30,8 +30,9 @@ export default function Home() {
           >
             Add a question
           </Link>
+          
           <Link
-            href="https://github.com/Gaurav153fr"
+            href="#"
             target="_blank"
             className="w-32 h-32 bg-white/50 backdrop-blur-md rounded-sm hover:rounded-3xl m-2 text-lg font-extrabold transition-all text-center flex items-center p-2"
           >
