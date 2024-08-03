@@ -101,7 +101,7 @@ const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
         text={post.options[1].text}
       />
       <div
-        className={`w-full h-20 fixed bottom-0 flex pb-2  ${
+        className={`w-full h-20 md:fixed bottom-0 flex pb-2  ${
           isClicked ? "" : "blur-3xl"
         } `}
       >
