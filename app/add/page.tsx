@@ -9,28 +9,36 @@ const Page = () => {
 
   const handleSubmit = async (event: any) => {
     event.preventDefault();
+    if (text1.length > 0 && text2.length > 0) {
+      try {
+        const response = await fetch("/api/create", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            options: [
+              { img: img1, text: text1, points: ["poin1"] },
+              { img: img2, text: text2, points: ["point1"] },
+            ],
+          }),
+        });
 
-    try {
-      const response = await fetch("/api/create", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          options: [
-            { img: img1, text: text1, points: ["poin1"] },
-            { img: img2, text: text2, points: ["point1"] },
-          ],
-        }),
-      });
-
-      if (response.ok) {
-        console.log("Data sent successfully");
-      } else {
-        console.error("Error sending data");
+        if (response.ok) {
+          console.log("Data sent successfully");
+          setImg1("");
+          setImg2("");
+          setText1("");
+          setText2("");
+          alert("success");
+        } else {
+          console.error("Error sending data");
+        }
+      } catch (error) {
+        console.error("Error:", error);
       }
-    } catch (error) {
-      console.error("Error:", error);
+    } else {
+      alert("abe sab field bhar");
     }
   };
 
