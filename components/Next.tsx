@@ -29,16 +29,20 @@ const Next = ({ isHome }: { isHome: boolean }) => {
   }
 
   return (
-    <Link
-      href={`/p/${nextId}`}
-      className={
-        isHome
-          ? "w-32 h-32 bg-white/50 backdrop-blur-md rounded-sm hover:rounded-3xl m-2 text-lg font-extrabold transition-all text-center flex items-center p-2"
-          : " p-2  rounded-sm font-bold m-1 shadow-full    fixed bottom-0  z-10 bg-yellow-400 shadow-sm hover:rounded-md"
-      }
-    >
-      {isHome ? <>Start the game</> : <>Next</>}
-    </Link>
+    <>
+      {nextId.length > 0 && (
+        <Link
+          href={`/p/${nextId}`}
+          className={
+            isHome
+              ? "w-32 h-32 bg-white/50 backdrop-blur-md rounded-sm hover:rounded-3xl m-2 text-lg font-extrabold transition-all text-center flex items-center p-2"
+              : " p-2  rounded-sm font-bold m-1 shadow-full    fixed bottom-0  z-10 bg-yellow-400 shadow-sm hover:rounded-md"
+          }
+        >
+          {isHome ? <>Start the game</> : <>Next</>}
+        </Link>
+      )}
+    </>
   );
 };
 
