@@ -31,8 +31,6 @@ const addExcludedId = (id: string) => {
 };
 
 const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
-  console.log(post);
-
   const { data: session } = useSession();
   const [isClicked, setClicked] = useState(false);
 
@@ -71,7 +69,6 @@ const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
         });
 
         const result = await response.json();
-        console.log("Added to", result);
       }
     } else {
       console.error("No email found in session");
@@ -81,7 +78,6 @@ const CardContainer = ({ post, id }: { post: PostType; id: string }) => {
   const totalPoints =
     (post.options[0]?.points?.length || 0) +
     (post.options[1]?.points?.length || 0);
-  console.log(post.options[0].points);
 
   return (
     <div className="w-full flex justify-center max-md:flex-col ">

@@ -9,7 +9,7 @@ interface postType {
 }
 
 const Page = async ({ params }: { params: { id: string } }) => {
-  console.log(params.id);
+ 
 
   try {
     const data: postType = await fetch(
